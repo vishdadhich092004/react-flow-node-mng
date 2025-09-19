@@ -35,7 +35,7 @@ export const TextNode = ({ id, data }: TextNodeProps) => {
   const content: NodeContentConfig = {
     title: 'Text',
     icon: FiType,
-    iconColor: 'bg-blue-100',
+    iconColor: 'bg-blue-200',
     description: 'Text processing and manipulation',
     children: (
       <div className="space-y-2">

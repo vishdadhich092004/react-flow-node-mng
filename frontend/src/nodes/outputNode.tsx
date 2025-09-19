@@ -42,7 +42,7 @@ export const OutputNode = ({ id, data }: OutputNodeProps) => {
   const content: NodeContentConfig = {
     title: 'Output',
     icon: FiDownload,
-    iconColor: 'bg-orange-100',
+    iconColor: 'bg-orange-200',
     description: 'Configure output parameters',
     children: (
       <div className="space-y-3">

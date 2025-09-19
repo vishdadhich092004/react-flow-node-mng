@@ -18,6 +18,7 @@ export type PipelineStore = {
   nodeIDs: Record<string, number>;
   getNodeID: (type: string) => string;
   addNode: (node: Node) => void;
+  deleteNode: (nodeId: string) => void;
   onNodesChange: OnNodesChange<Node>;
   onEdgesChange: OnEdgesChange<Edge>;
   onConnect: OnConnect;
@@ -40,6 +41,12 @@ export const useStore = create<PipelineStore>((set, get) => ({
     addNode: (node: Node) => {
         set({
             nodes: [...get().nodes, node]
+        });
+    },
+    deleteNode: (nodeId: string) => {
+        set({
+            nodes: get().nodes.filter(node => node.id !== nodeId),
+            edges: get().edges.filter(edge => edge.source !== nodeId && edge.target !== nodeId)
         });
     },
     onNodesChange: (changes) => {

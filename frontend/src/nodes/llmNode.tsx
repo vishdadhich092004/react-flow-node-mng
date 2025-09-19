@@ -41,7 +41,7 @@ export const LLMNode = ({ id, data }: LLMNodeProps) => {
   const content: NodeContentConfig = {
     title: 'LLM',
     icon: FiCpu,
-    iconColor: 'bg-purple-100',
+    iconColor: 'bg-purple-200',
     description: 'Large Language Model for text generation and processing',
     children: (
       <div className="space-y-3">

@@ -42,7 +42,7 @@ export const InputNode = ({ id, data }: InputNodeProps) => {
   const content: NodeContentConfig = {
     title: 'Input',
     icon: FiUpload,
-    iconColor: 'bg-green-100',
+    iconColor: 'bg-green-200',
     description: 'Configure input parameters',
     children: (
       <div className="space-y-3">

@@ -6,8 +6,12 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
-
+import { DataNode } from './nodes/dataNode';
 import '@xyflow/react/dist/style.css';
+import { AggregateNode } from './nodes/aggregateNode';
+import { FilterNode } from './nodes/filterNode';
+import { ConditionNode } from './nodes/conditionNode';
+import { APINode } from './nodes/apiNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -16,6 +20,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  data: DataNode,
+  filter: FilterNode,
+  aggregate: AggregateNode,
+  condition: ConditionNode,
+  api: APINode
 };
 
 // intentionally use individual selectors to avoid creating new objects each render
