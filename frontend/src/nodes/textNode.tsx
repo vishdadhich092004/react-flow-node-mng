@@ -22,7 +22,7 @@ export const TextNode = ({ id, data }: TextNodeProps) => {
   };
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div className="w-50 h-20 border border-black">
       <div>
         <span>Text</span>
       </div>

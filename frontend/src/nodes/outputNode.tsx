@@ -28,7 +28,7 @@ export const OutputNode = ({ id, data }: OutputNodeProps) => {
   };
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div className="w-50 h-20 border border-black">
       <Handle
         type="target"
         position={Position.Left}

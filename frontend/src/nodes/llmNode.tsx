@@ -10,18 +10,18 @@ interface LLMNodeData {
 export const LLMNode = ({ id }: { id: string; data: LLMNodeData }) => {
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div className="w-50 h-20 border border-black">
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-system`}
-        style={{top: `${100/3}%`}}
+        className="top-1/3"
       />
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-prompt`}
-        style={{top: `${200/3}%`}}
+        className="top-2/3"
       />
       <div>
         <span>LLM</span>

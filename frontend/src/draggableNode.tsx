@@ -1,4 +1,3 @@
-
 interface DraggableNodeProps {
   type: string;
   label: string;
@@ -14,23 +13,12 @@ export const DraggableNode = ({ type, label }: DraggableNodeProps) => {
   
     return (
       <div
-        className={type}
+        className={`${type} cursor-grab min-w-20 h-15 flex items-center rounded-lg bg-slate-800 justify-center flex-col`}
         onDragStart={(event) => onDragStart(event, type)}
         onDragEnd={(event) => (event.currentTarget.style.cursor = 'grab')}
-        style={{ 
-          cursor: 'grab', 
-          minWidth: '80px', 
-          height: '60px',
-          display: 'flex', 
-          alignItems: 'center', 
-          borderRadius: '8px',
-          backgroundColor: '#1C2536',
-          justifyContent: 'center', 
-          flexDirection: 'column'
-        }} 
         draggable
       >
-          <span style={{ color: '#fff' }}>{label}</span>
+          <span className="text-white">{label}</span>
       </div>
     );
   };
