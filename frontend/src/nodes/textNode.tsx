@@ -1,16 +1,17 @@
 // textNode.tsx
 
 import { useState } from 'react';
-import { Handle, Position } from '@xyflow/react';
+import { Position, type NodeProps } from '@xyflow/react';
+import { BaseNode, type BaseNodeData, type HandleConfig, type NodeContentConfig } from './baseNode';
+import { FiType } from 'react-icons/fi';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
-interface TextNodeData {
-  id: string;
-  nodeType: string;
+interface TextNodeData extends BaseNodeData {
   text?: string;
 }
 
-interface TextNodeProps {
-  id: string;
+interface TextNodeProps extends NodeProps {
   data: TextNodeData;
 }
 
@@ -21,26 +22,49 @@ export const TextNode = ({ id, data }: TextNodeProps) => {
     setCurrText(e.target.value);
   };
 
-  return (
-    <div className="w-50 h-20 border border-black">
-      <div>
-        <span>Text</span>
-      </div>
-      <div>
-        <label>
-          Text:
-          <input 
-            type="text" 
-            value={currText} 
-            onChange={handleTextChange} 
+  // Configure handles
+  const handles: HandleConfig[] = [
+    {
+      id: `${id}-output`,
+      type: 'source',
+      position: Position.Right,
+    }
+  ];
+
+  // Configure content
+  const content: NodeContentConfig = {
+    title: 'Text',
+    icon: FiType,
+    iconColor: 'bg-blue-100',
+    description: 'Text processing and manipulation',
+    children: (
+      <div className="space-y-2">
+        <div className="space-y-1">
+          <Label htmlFor="text-content" className="text-xs">
+            Text Content
+          </Label>
+          <Input
+            id="text-content"
+            type="text"
+            value={currText}
+            onChange={handleTextChange}
+            placeholder="Enter text or use {{input}} for variables"
+            className="h-8 text-xs"
           />
-        </label>
+        </div>
+        <div className="text-xs text-muted-foreground">
+          Use <code className="bg-muted px-1 rounded text-xs">{'{{input}}'}</code> for dynamic values
+        </div>
       </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-output`}
-      />
-    </div>
+    )
+  };
+
+  return (
+    <BaseNode
+      id={id}
+      data={data}
+      handles={handles}
+      content={content}
+    />
   );
 }
