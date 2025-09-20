@@ -1,15 +1,4 @@
-import { 
-  FiType, 
-  FiDatabase, 
-  FiFilter, 
-  FiBarChart, 
-  FiGitBranch, 
-  FiGlobe, 
-  FiUpload, 
-  FiCpu, 
-  FiDownload 
-} from 'react-icons/fi';
-
+import { FiType, FiDatabase, FiFilter, FiBarChart, FiGitBranch, FiGlobe, FiUpload, FiCpu, FiDownload } from 'react-icons/fi';
 interface DraggableNodeProps {
   type: string;
   label: string;
@@ -58,26 +47,7 @@ export const DraggableNode = ({ type, label }: DraggableNodeProps) => {
     return (
       <div
         className={`
-          ${type} 
-          cursor-grab 
-          min-w-24 
-          h-16 
-          flex 
-          items-center 
-          justify-center 
-          flex-col
-          rounded-xl 
-          border-2
-          shadow-lg
-          transition-all 
-          duration-200 
-          ease-in-out
-          transform
-          hover:scale-105
-          hover:shadow-xl
-          active:scale-95
-          active:cursor-grabbing
-          select-none
+          ${type} cursor-grab min-w-24 h-16 flex items-center justify-center flex-colrounded-xl border-2shadow-lgtransition-all duration-200 ease-in-outtransformhover:scale-105hover:shadow-xlactive:scale-95active:cursor-grabbingselect-none rounded-md
           ${getNodeColors(type)}
         `}
         onDragStart={(event) => onDragStart(event, type)}
