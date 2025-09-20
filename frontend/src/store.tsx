@@ -63,7 +63,7 @@ export const useStore = create<PipelineStore>((set, get) => ({
       set({
         edges: addEdge({
           ...connection,
-          type: 'smoothstep',
+          type: 'custom',
           animated: true,
           markerEnd: { type: MarkerType.Arrow, height: 20, width: 20 },
         }, get().edges),

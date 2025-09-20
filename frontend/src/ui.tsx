@@ -12,6 +12,7 @@ import { AggregateNode } from './nodes/aggregateNode';
 import { FilterNode } from './nodes/filterNode';
 import { ConditionNode } from './nodes/conditionNode';
 import { APINode } from './nodes/apiNode';
+import CustomEdge from './components/custom-edge';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -25,6 +26,10 @@ const nodeTypes = {
   aggregate: AggregateNode,
   condition: ConditionNode,
   api: APINode
+};
+
+const edgeTypes = {
+  custom: CustomEdge,
 };
 
 // intentionally use individual selectors to avoid creating new objects each render
@@ -99,6 +104,7 @@ export const PipelineUI = () => {
                 onDragOver={onDragOver}
                 onInit={(instance) => setReactFlowInstance(instance)}
                 nodeTypes={nodeTypes}
+                edgeTypes={edgeTypes}
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType={ConnectionLineType.SmoothStep}
