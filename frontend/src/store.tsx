@@ -19,6 +19,7 @@ export type PipelineStore = {
   getNodeID: (type: string) => string;
   addNode: (node: Node) => void;
   deleteNode: (nodeId: string) => void;
+  resetPipeline: () => void;
   onNodesChange: OnNodesChange<Node>;
   onEdgesChange: OnEdgesChange<Edge>;
   onConnect: OnConnect;
@@ -47,6 +48,13 @@ export const useStore = create<PipelineStore>((set, get) => ({
         set({
             nodes: get().nodes.filter(node => node.id !== nodeId),
             edges: get().edges.filter(edge => edge.source !== nodeId && edge.target !== nodeId)
+        });
+    },
+    resetPipeline: () => {
+        set({
+            nodes: [],
+            edges: [],
+            nodeIDs: {}
         });
     },
     onNodesChange: (changes) => {
